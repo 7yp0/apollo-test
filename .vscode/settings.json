@@ -1,0 +1,27 @@
+{
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "window.zoomLevel": 0,
+    "files.autoSave": "afterDelay",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "markdown.extension.preview.autoShowPreviewToSide": true,
+    "gitlens.blame.line.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "eslint.alwaysShowStatus": true,
+    "explorer.confirmDelete": false,
+    "eslint.autoFixOnSave": true,
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.formatOnSave": false,
+    }
+}
