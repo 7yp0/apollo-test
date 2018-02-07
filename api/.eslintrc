@@ -26,9 +26,14 @@
         "jest": true,
         "mongo": true
     },
+    "settings": {
+        "flowtype": {
+            "onlyFilesWithFlowAnnotation": true
+        }
+    },
     "rules": {
+        "prettier/prettier": 2,
         "no-console": 2,
-        "max-len": 0,
         "no-case-declarations": 0,
         "arrow-body-style": 2,
         "new-cap": 0,

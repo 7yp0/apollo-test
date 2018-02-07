@@ -2,6 +2,8 @@
 
 const x: number = 4;
 
-const y: Function = (a = x) => { 
-    console.log(a);  
-};  
+const y: (a?: number) => void = (a: number = x) => {
+  console.log(a);
+};
+
+y();
