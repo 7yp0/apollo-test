@@ -102,7 +102,7 @@
                 "annotationStyle": "line"
             }
         ],
-        "flowtype/require-variable-type": 2,
+        "flowtype/require-variable-type": 0,
         "flowtype/semi": [
             2,
             "always"

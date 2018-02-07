@@ -1,9 +1,9 @@
 // @flow
 
-const x: number = 4;
+const x = (a: number): number => a * 2;
 
-const y: (a?: number) => void = (a: number = x) => {
-  console.log(a);
-};
+const y = (b: number): number => b ** 2;
 
-y();
+const z: number = 2 |> x |> y;
+
+console.log(z);
