@@ -1,10 +1,32 @@
 // @flow
 
-const x = (a: number): number => a * 2;
+import express from 'express';
+import bodyParser from 'body-parser';
+import { graphiqlExpress, graphqlExpress } from 'apollo-server-express';
+import { makeExecutableSchema } from 'graphql-tools';
+import mongoose from 'mongoose';
 
-const y = (b: number): number => b ** 2;
+import typeDefs from './schemas';
+import resolvers from './resolvers';
 
-// $FlowFixMe - no pipe yet
-const z: number = 2 |> x |> y;
+const PORT = 3000;
+const app = express();
 
-console.log(z);
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+
+mongoose.connect('mongodb://127.0.0.1:27017/example');
+
+const Cat = mongoose.model('Cat', { name: String });
+
+app.use(
+  '/graphql',
+  bodyParser.json(),
+  graphqlExpress({ schema, context: { Cat } }),
+);
+
+app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+
+app.listen(PORT);

@@ -32,7 +32,17 @@
         }
     },
     "rules": {
-        "prettier/prettier": 2,
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "trailingComma": "all"
+            }
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
         "no-console": 2,
         "no-case-declarations": 0,
         "arrow-body-style": 2,
