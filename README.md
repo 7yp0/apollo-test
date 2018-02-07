@@ -4,11 +4,11 @@ A Fullstack project using React, Redux, GraphQL Apollo, Express and MongoDB
 
 ## TODO
 
-- [ ] set up mongo db
+- [x] set up mongo db
 - [ ] set up Express
 - [ ] set up graphql with apollo (backend)
-- [ ] install typescript
-- [ ] add eslint + prettier
+- [x] add flow
+- [x] add eslint + prettier
 - [ ] add jest
 - [ ] add cypress
 - [ ] add webpack (with treeshaking)
