@@ -1,8 +1,6 @@
 {
     "javascript.validate.enable": false,
     "editor.tabSize": 2,
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Dark++",
     "window.zoomLevel": 0,
     "files.autoSave": "off",
     "files.insertFinalNewline": true,
