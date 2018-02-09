@@ -24,7 +24,7 @@ const asyncGlob = async (
 const loadSchemasAsync = async (): Array<string> => {
   const schemas = [];
 
-  const files = await asyncGlob('**/schema.graphql', {});
+  const files = await asyncGlob('src/**/*.graphql', {});
   const filteredFiles = files.filter(
     (file: string): boolean => !file.includes('node_modules'),
   );
