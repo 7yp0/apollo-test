@@ -21,27 +21,22 @@ const asyncGlob = async (
     });
   });
 
-const loadSchemasAsync = async (): Array<string> => {
-  const schemas = [];
-
+const loadSchemas = async (): Array<string> => {
   const files = await asyncGlob('src/**/*.graphql', {});
+
   const filteredFiles = files.filter(
     (file: string): boolean => !file.includes('node_modules'),
   );
 
-  filteredFiles.forEach((file: string) => {
+  return filteredFiles.map((file: string): string => {
     const relativeFile = `./${file}`;
     // eslint-disable-next-line global-require, import/no-dynamic-require
-    const schema = require(relativeFile);
-
-    schemas.push(schema);
+    return require(relativeFile);
   });
-
-  return schemas;
 };
 
 const buildSchemaFile = async (): void => {
-  const schemas = await loadSchemasAsync();
+  const schemas = await loadSchemas();
   const schemaString = schemas.join('');
 
   fs.writeFile(
