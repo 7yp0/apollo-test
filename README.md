@@ -10,8 +10,8 @@ API
 - [x] set up graphql with apollo (backend)
 - [x] add flow
 - [x] add eslint + prettier
-- [ ] add webpack for api with .gql support
-- [ ] add structure to api
+- [x] add .graphql support
+- [x] add structure to api
 - [ ] handle env variables
 - [ ] set up docker
 
