@@ -1,5 +1,5 @@
-import * as cats from './cats';
+import * as cat from './cat';
 
 export default {
-  ...cats,
+  ...cat,
 };
