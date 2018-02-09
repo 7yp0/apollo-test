@@ -45,7 +45,7 @@ const buildSchemaFile = async (): void => {
   const schemaString = schemas.join('');
 
   fs.writeFile(
-    `${__dirname}/dist/index.graphql`,
+    `${__dirname}/build/index.graphql`,
     schemaString,
     (error: Error) => {
       if (error) {

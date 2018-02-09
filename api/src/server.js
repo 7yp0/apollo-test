@@ -7,7 +7,7 @@ import { makeExecutableSchema } from 'graphql-tools';
 import mongoose from 'mongoose';
 
 import initModels from './models';
-import typeDefs from '../dist/index.graphql';
+import typeDefs from '../build/index.graphql';
 import resolvers from './resolvers';
 
 const PORT = 3000;
