@@ -1,6 +1,7 @@
-import { allCats, createCat } from './cat';
+import Query from './queries';
+import Mutation from './mutations';
 
 export default {
-  Query: { allCats },
-  Mutation: { createCat },
+  Query,
+  Mutation,
 };

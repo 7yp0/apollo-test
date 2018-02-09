@@ -2,8 +2,7 @@
 
 ## MongoDB
 
-- navigate to your mongoDB
-- mongod --dbpath <your_db_path>
+- mongod
 - mongo
 
 ## Server

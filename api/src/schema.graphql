@@ -1,0 +1,13 @@
+type Query {
+  getCat(name: String!): Cat
+  allCats: [Cat!]!
+}
+
+type Mutation {
+  createCat(name: String!): Cat!    
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
