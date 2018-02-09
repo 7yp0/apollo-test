@@ -56,7 +56,7 @@ const buildSchemaFile = async (): void => {
       }
 
       // eslint-disable-next-line no-console
-      console.log('file was created');
+      console.log('schema file was created');
     },
   );
 };
