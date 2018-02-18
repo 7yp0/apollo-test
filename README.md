@@ -16,12 +16,11 @@ API
 - [ ] set up docker
 
 APP
+- [x] add webpack
+- [x] add react, redux, react router
+- [ ] add treeshaking
 - [ ] add jest
 - [ ] add cypress
-- [ ] add webpack (with treeshaking)
-- [ ] add react router
-- [ ] add react with styled components
-- [ ] make it ssr
 - [ ] set up apollo with redux (frontend)
 - [ ] add icons
 - [ ] make it offline rdy
