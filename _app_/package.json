@@ -1,26 +1,33 @@
 {
-  "name": "api",
+  "name": "app",
   "version": "1.0.0",
-  "description": "a graphql apollo api",
+  "description": "an apollo redux frontend app",
   "main": "index.js",
   "scripts": {
-    "prestart": "./node_modules/.bin/babel-node ./build.js",
-    "start": "./node_modules/.bin/nodemon --exec ./node_modules/.bin/babel-node ./src/server.js",
     "test": "test",
     "lint": "./node_modules/.bin/eslint ./src",
-    "flow": "./node_modules/.bin/flow"
+    "flow": "./node_modules/.bin/flow",
+    "build": "./node_modules/.bin/webpack"
   },
   "author": "Michael Lückgen",
   "license": "GNU",
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 ChromeAndroid versions",
+    "last 2 Edge versions",
+    "last 2 Firefox versions",
+    "last 2 iOS versions",
+    "last 2 Safari versions"
+  ],
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
-    "babel-plugin-inline-import": "^2.0.6",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "css-loader": "^0.28.9",
     "eslint": "^4.17.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -30,16 +37,16 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.6.1",
     "flow-bin": "^0.65.0",
-    "nodemon": "^1.14.12",
-    "prettier": "^1.10.2"
+    "json-loader": "^0.5.7",
+    "prettier": "^1.10.2",
+    "style-loader": "^0.20.2",
+    "svg-sprite-loader": "^3.6.2",
+    "webpack": "^3.11.0"
   },
   "dependencies": {
-    "apollo-server-express": "^1.3.2",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "glob": "^7.1.2",
-    "graphql": "^0.13.0",
-    "graphql-tools": "^2.20.1",
-    "mongoose": "^5.0.3"
+    "react": "^16.2.0",
+    "react-apollo": "^2.0.4",
+    "react-dom": "^16.2.0",
+    "react-hot-loader": "^3.1.3"
   }
 }
