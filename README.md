@@ -12,7 +12,6 @@ API
 - [x] add eslint + prettier
 - [x] add .graphql support
 - [x] add structure to api
-- [ ] handle env variables
 - [ ] set up docker
 
 APP
