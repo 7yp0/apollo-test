@@ -4,8 +4,5 @@
         "stage-1",
         "react",
         "flow"
-    ],
-    "plugins": [
-        "react-hot-loader/babel"
     ]
 }

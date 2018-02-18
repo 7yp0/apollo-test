@@ -1,16 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const srcPath = path.resolve(__dirname, './src');
 const distPath = path.resolve(__dirname, './dist');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
-  entry: ['react-hot-loader/patch', `${srcPath}/index.js`],
+  entry: [`${srcPath}/index.js`],
   output: {
     path: distPath,
     filename: '[name].js',
-    publicPath: './static/',
   },
   devServer: {
     contentBase: './dist',
@@ -19,12 +19,24 @@ module.exports = {
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebPackPlugin({
+      template: './views/index.html',
+      filename: './index.html',
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+          },
+        ],
       },
       {
         test: /\.jsx?$/,

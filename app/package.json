@@ -1,16 +1,55 @@
 {
   "name": "app",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "an apollo redux frontend app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "lint": "./node_modules/.bin/eslint ./src",
+    "flow": "./node_modules/.bin/flow",
+    "build": "./node_modules/.bin/webpack",
+    "start": "./node_modules/.bin/babel-node dev-server.js"
+  },
+  "author": "Michael Lückgen",
+  "license": "GNU",
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 ChromeAndroid versions",
+    "last 2 Edge versions",
+    "last 2 Firefox versions",
+    "last 2 iOS versions",
+    "last 2 Safari versions"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.42.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "flow-bin": "^0.65.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^2.30.1",
+    "json-loader": "^0.5.7",
+    "prettier": "^1.10.2",
+    "style-loader": "^0.20.2",
+    "svg-sprite-loader": "^3.6.2",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
+  },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "react-apollo": "^2.0.4",
+    "react-dom": "^16.2.0"
   }
 }
