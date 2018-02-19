@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import store from './store';
 import App from './containers/App';
 
-const render = Component => {
-  ReactDOM.render(<Component />, document.getElementById('root'));
+const Wrapper = () => (
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>
+);
+
+const render = () => {
+  ReactDOM.render(<Wrapper />, document.getElementById('root'));
 };
 
-render(App);
+render();
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./containers/App.js', () => {
-    render(App);
-  });
+  module.hot.accept(Wrapper, () => render());
 }

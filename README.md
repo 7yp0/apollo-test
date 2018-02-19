@@ -16,8 +16,8 @@ API
 
 APP
 - [x] add webpack
-- [ ] add react, redux, react router
-- [ ] add treeshaking
+- [x] add react, redux, react router
+- [x] add treeshaking
 - [ ] add jest
 - [ ] add cypress
 - [ ] set up apollo with redux (frontend)

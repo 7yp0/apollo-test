@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const srcPath = path.resolve(__dirname, './src');
 const distPath = path.resolve(__dirname, './dist');
@@ -23,6 +24,7 @@ module.exports = {
       template: './views/index.html',
       filename: './index.html',
     }),
+    new UglifyJSPlugin(),
   ],
   module: {
     rules: [
