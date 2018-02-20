@@ -6,6 +6,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import store from './store';
 import App from './containers/App';
 
+import { isDevelopment } from './utils/environment';
+
 const Wrapper = () => (
   <Provider store={store}>
     <Router>
@@ -21,6 +23,6 @@ const render = () => {
 render();
 
 // Webpack Hot Module Replacement API
-if (module.hot) {
+if (isDevelopment && module.hot) {
   module.hot.accept(Wrapper, () => render());
 }

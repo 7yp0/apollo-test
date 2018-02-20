@@ -24,6 +24,11 @@ module.exports = {
       template: './views/index.html',
       filename: './index.html',
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+      },
+    }),
     new UglifyJSPlugin(),
   ],
   module: {

@@ -8,6 +8,7 @@ const PORT = 5000;
 const options = {
   contentBase: './dist',
   hot: true,
+  historyApiFallback: true,
   host: 'localhost',
 };
 

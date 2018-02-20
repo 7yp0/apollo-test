@@ -16,11 +16,10 @@ API
 
 APP
 - [x] add webpack
+- [x] add icons
 - [x] add react, redux, react router
 - [x] add treeshaking
-- [ ] add jest
-- [ ] add cypress
+- [ ] add ssr
 - [ ] set up apollo with redux (frontend)
-- [ ] add icons
-- [ ] make it offline rdy
+- [ ] make it offline rdy (redux offline + service worker)
 - [ ] handle deployment
