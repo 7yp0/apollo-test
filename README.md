@@ -19,7 +19,6 @@ APP
 - [x] add icons
 - [x] add react, redux, react router
 - [x] add treeshaking
-- [ ] add ssr
 - [ ] set up apollo with redux (frontend)
 - [ ] make it offline rdy (redux offline + service worker)
 - [ ] handle deployment
