@@ -1,10 +1,10 @@
-import React from 'react';
-import { Switch, Route, Link as RouterLink } from 'react-router-dom';
+// @flow
+import React, { type Node } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
-import Home from '../Home';
-import About from '../About';
+import Routes from '../Routes';
 
-const App = () => (
+const App = (): Node => (
   <div>
     <header>
       <div>
@@ -15,10 +15,7 @@ const App = () => (
       </div>
     </header>
     <main>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-      </Switch>
+      <Routes />
     </main>
   </div>
 );

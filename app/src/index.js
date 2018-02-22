@@ -1,14 +1,18 @@
-import React from 'react';
+// @flow
+import React, { type Node } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import Router from 'react-router-dom/BrowserRouter';
 
-import store from './store';
+import configureStore from './store';
 import App from './containers/App';
 
 import { isDevelopment } from './utils/environment';
 
-const Wrapper = () => (
+// eslint-disable-next-line no-underscore-dangle
+const store = configureStore(window.__INITIAL_STATE__);
+
+const Wrapper = (): Node => (
   <Provider store={store}>
     <Router>
       <App />
@@ -17,12 +21,20 @@ const Wrapper = () => (
 );
 
 const render = () => {
-  ReactDOM.render(<Wrapper />, document.getElementById('root'));
+  const element = document.getElementById('root');
+
+  if (!element) {
+    return;
+  }
+
+  // $FlowFixMe - flow doesn't know this yet
+  ReactDOM.hydrate(<Wrapper />, element);
 };
 
 render();
 
 // Webpack Hot Module Replacement API
 if (isDevelopment && module.hot) {
-  module.hot.accept(Wrapper, () => render());
+  // $FlowFixMe - for hot reloading its okay
+  module.hot.accept(Wrapper, (): Node => render());
 }

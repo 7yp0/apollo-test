@@ -1,40 +1,27 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const srcPath = path.resolve(__dirname, './src');
 const distPath = path.resolve(__dirname, './dist');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'nosources-source-map',
   entry: [`${srcPath}/index.js`],
   output: {
     path: distPath,
     filename: '[name].js',
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-  },
   plugins: [
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebPackPlugin({
-      title: 'index.html',
-      template: './views/index.pug',
-    }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('development'),
+        NODE_ENV: JSON.stringify('production'),
       },
     }),
+    new UglifyJSPlugin(),
   ],
   module: {
     rules: [
-      {
-        test: /\.pug$/,
-        use: ['html-loader', 'pug-html-loader?pretty&exports=false'],
-      },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],

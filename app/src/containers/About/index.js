@@ -1,5 +1,6 @@
-import React from 'react';
+// @flow
+import React, { type Node } from 'react';
 
-const About = () => <div>About</div>;
+const About = (): Node => <div>About</div>;
 
 export default About;

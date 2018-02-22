@@ -1,21 +1,22 @@
+// @flow
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+
+import type { Store } from './reducers';
 
 import rootReducer from './reducers';
 import { runsInServer } from './utils/environment';
 
-const initialState = {};
-
 const middlewares = [thunk];
 
-function createDevToolsExtension() {
+function createDevToolsExtension(): Function {
   if (!runsInServer) {
     const { devToolsExtension } = window;
 
     return devToolsExtension();
   }
 
-  return f => f;
+  return (f: any): any => f;
 }
 
 const composedEnhancers = compose(
@@ -23,6 +24,7 @@ const composedEnhancers = compose(
   createDevToolsExtension(),
 );
 
-const store = createStore(rootReducer, initialState, composedEnhancers);
+const configureStore = (initialState: Store): Store =>
+  createStore(rootReducer, initialState, composedEnhancers);
 
-export default store;
+export default configureStore;

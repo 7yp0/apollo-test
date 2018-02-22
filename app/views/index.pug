@@ -1,0 +1,17 @@
+doctype html
+html.html
+  head
+    title App
+
+    meta(charset='utf-8')
+
+    script.
+      window.__INITIAL_STATE__ = !{JSON.stringify(initialState || {})};
+
+  body.body
+    != ssr
+
+    div#root!= markup
+
+    script(src='main.js')
+
