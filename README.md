@@ -24,3 +24,4 @@ APP
 - [ ] set up apollo with redux (frontend)
 - [ ] make it offline rdy (service worker)
 - [ ] handle deployment
+- [ ] make a TODO App from it

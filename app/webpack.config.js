@@ -17,17 +17,16 @@ module.exports = {
     hot: true,
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebPackPlugin({
-      title: 'index.html',
-      template: './views/index.pug',
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
       },
     }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebPackPlugin({
+      template: './views/index.pug',
+    })
   ],
   module: {
     rules: [
