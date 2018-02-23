@@ -7,7 +7,7 @@ import Router from 'react-router-dom/BrowserRouter';
 import configureStore from './store';
 import App from './containers/App';
 
-import { isDevelopment } from './utils/environment';
+import config from './config';
 
 // eslint-disable-next-line no-underscore-dangle
 const store = configureStore(window.__INITIAL_STATE__);
@@ -34,7 +34,7 @@ const render = () => {
 render();
 
 // Webpack Hot Module Replacement API
-if (isDevelopment && module.hot) {
+if (config.isDevelopment && module.hot) {
   // $FlowFixMe - for hot reloading its okay
   module.hot.accept(Wrapper, (): Node => render());
 }

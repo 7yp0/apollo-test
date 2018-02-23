@@ -18,5 +18,5 @@ const server = new webpackDevServer(compiler, options);
 
 server.listen(PORT, 'localhost', () => {
   // eslint-disable-next-line no-console
-  console.log('dev server listening on port 5000');
+  console.log(`dev server listening on port ${PORT}`);
 });

@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const srcPath = path.resolve(__dirname, './src');
 const distPath = path.resolve(__dirname, './dist');
@@ -17,16 +18,16 @@ module.exports = {
     hot: true,
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development'),
-      },
+    new Dotenv({
+      safe: true,
+      systemvars: true,
+      silent: true,
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: './views/index.pug',
-    })
+    }),
   ],
   module: {
     rules: [

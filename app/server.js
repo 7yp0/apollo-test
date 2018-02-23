@@ -6,7 +6,9 @@ import StaticRouter from 'react-router-dom/StaticRouter';
 
 import App from './src/containers/App';
 
-const PORT = 5000;
+import config from './src/config';
+
+const { port } = config;
 
 const app = express();
 
@@ -18,9 +20,11 @@ app.get('*', (request: $Request, response: $Response) => {
   const context = {};
 
   const markup = renderToString(
-    <StaticRouter location={request.url} context={context}>
-      <App />
-    </StaticRouter>,
+    <div>
+      <StaticRouter location={request.url} context={context}>
+        <App />
+      </StaticRouter>
+    </div>,
   );
 
   response.render('index', {
@@ -30,7 +34,7 @@ app.get('*', (request: $Request, response: $Response) => {
   });
 });
 
-const server = app.listen(PORT, () => {
+const server = app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(
     `running at http://${server.address().address}:${server.address().port}`,

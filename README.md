@@ -20,8 +20,9 @@ APP
 - [x] add react, redux, react router
 - [x] add treeshaking
 - [x] ssr
+- [x] env and config
 - [ ] use react loadable
 - [ ] set up apollo with redux (frontend)
-- [ ] make it offline rdy (service worker)
+- [ ] make it offline rdy (service worker) (cache on install + on network response + generic callback [für page] +  Cache, falling back to network [für rest])
 - [ ] handle deployment
 - [ ] make a TODO App from it

@@ -1,6 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const srcPath = path.resolve(__dirname, './src');
 const distPath = path.resolve(__dirname, './dist');
@@ -13,10 +13,10 @@ module.exports = {
     filename: '[name].js',
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production'),
-      },
+    new Dotenv({
+      safe: true,
+      systemvars: true,
+      silent: true,
     }),
     new UglifyJSPlugin(),
   ],
