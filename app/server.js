@@ -1,8 +1,10 @@
 // @flow
+
 import express, { type $Request, type $Response } from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import StaticRouter from 'react-router-dom/StaticRouter';
+import {} from 'dotenv/config';
 
 import App from './src/containers/App';
 

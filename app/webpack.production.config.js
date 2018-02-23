@@ -1,6 +1,5 @@
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 const srcPath = path.resolve(__dirname, './src');
 const distPath = path.resolve(__dirname, './dist');
@@ -12,14 +11,7 @@ module.exports = {
     path: distPath,
     filename: '[name].js',
   },
-  plugins: [
-    new Dotenv({
-      safe: true,
-      systemvars: true,
-      silent: true,
-    }),
-    new UglifyJSPlugin(),
-  ],
+  plugins: [new UglifyJSPlugin()],
   module: {
     rules: [
       {
