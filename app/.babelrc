@@ -1,11 +1,22 @@
 {
     "presets": [
-        "env",
+        [
+            "env",
+            {
+                "targets": {
+                    "browsers": [
+                        "last 2 versions"
+                    ]
+                }
+            }
+        ],
         "stage-1",
         "react",
         "flow"
     ],
     "plugins": [
-        "transform-decorators-legacy"
+        "transform-decorators-legacy",
+        "syntax-dynamic-import",
+        "react-loadable/babel"
     ]
 }

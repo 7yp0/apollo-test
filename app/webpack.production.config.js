@@ -1,17 +1,22 @@
 const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const { ReactLoadablePlugin } = require('react-loadable/webpack');
 
 const srcPath = path.resolve(__dirname, './src');
 const distPath = path.resolve(__dirname, './dist');
 
 module.exports = {
-  devtool: 'nosources-source-map',
-  entry: [`${srcPath}/index.js`],
+  entry: ['babel-polyfill', `${srcPath}/index.js`],
+  mode: 'production',
   output: {
     path: distPath,
     filename: '[name].js',
+    chunkFilename: '[name].bundle.js',
   },
-  plugins: [new UglifyJSPlugin()],
+  plugins: [
+    new ReactLoadablePlugin({
+      filename: './dist/react-loadable.json',
+    }),
+  ],
   module: {
     rules: [
       {

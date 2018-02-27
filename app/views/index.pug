@@ -13,3 +13,8 @@ html.html
 
     div#root!= markup
 
+    if bundles
+      each bundle in bundles
+        script(src= bundle.file)
+
+    script(src="main.js")

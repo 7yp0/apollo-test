@@ -21,8 +21,11 @@ APP
 - [x] add treeshaking
 - [x] ssr
 - [x] env and config
-- [ ] use react loadable
+- [x] use react loadable
 - [ ] set up apollo with redux (frontend)
 - [ ] make it offline rdy (service worker) (cache on install + on network response + generic callback [für page] +  Cache, falling back to network [für rest])
+- [ ] add jest
+- [ ] add storybook
+- [ ] add icons to ssr
 - [ ] handle deployment
 - [ ] make a TODO App from it

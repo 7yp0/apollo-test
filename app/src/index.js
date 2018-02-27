@@ -3,8 +3,10 @@ import React, { type Node } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import Router from 'react-router-dom/BrowserRouter';
+import Loadable from 'react-loadable';
 
 import configureStore from './store';
+
 import App from './containers/App';
 
 import config from './config';
@@ -20,12 +22,14 @@ const Wrapper = (): Node => (
   </Provider>
 );
 
-const render = () => {
+const render = async (): Promise<void> => {
   const element = document.getElementById('root');
 
   if (!element) {
     return;
   }
+
+  await Loadable.preloadReady();
 
   // $FlowFixMe - flow doesn't know this yet
   ReactDOM.hydrate(<Wrapper />, element);

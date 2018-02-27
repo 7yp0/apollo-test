@@ -8,7 +8,8 @@ const distPath = path.resolve(__dirname, './dist');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
-  entry: [`${srcPath}/index.js`],
+  entry: ['babel-polyfill', `${srcPath}/index.js`],
+  mode: 'development',
   output: {
     path: distPath,
     filename: '[name].js',
@@ -27,6 +28,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: './views/index.pug',
+      inject: false,
     }),
   ],
   module: {
