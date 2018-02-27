@@ -1,0 +1,9 @@
+{
+  "verbose": true,
+  "collectCoverageFrom": [
+    "src/*-test.js",
+    "src/*.test.js",
+    "!**/node_modules/**",
+    "!**/vendor/**"
+  ]
+}

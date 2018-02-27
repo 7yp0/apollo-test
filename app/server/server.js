@@ -25,15 +25,20 @@ app.set('view engine', 'pug');
 app.get('*', (request: $Request, response: $Response) => {
   const context = {};
 
-  const { markup, modules } = renderApp(context, request.url);
+  const { markup, modules, preloadedState, styleTags, svgSprite } = renderApp(
+    context,
+    request.url,
+    INITIAL_STATE,
+  );
 
   const bundles = getBundles(stats, modules);
 
   response.render('index', {
-    initialState: INITIAL_STATE,
     markup,
     bundles,
-    svgSprite: 'svgSprite',
+    initialState: preloadedState,
+    styleTags,
+    svgSprite,
   });
 });
 

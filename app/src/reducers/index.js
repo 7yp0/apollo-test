@@ -1,8 +1,8 @@
 // @flow
 import { combineReducers } from 'redux';
 
-export type Store = {
-  test: Object,
+export type AppState = {
+  test: 'string',
 };
 
 export default combineReducers({

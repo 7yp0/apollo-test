@@ -24,8 +24,8 @@ APP
 - [x] use react loadable
 - [ ] set up apollo with redux (frontend)
 - [ ] make it offline rdy (service worker) (cache on install + on network response + generic callback [für page] +  Cache, falling back to network [für rest])
-- [ ] add jest
-- [ ] add storybook
-- [ ] add icons to ssr
+- [x] add jest
+- [x] add icons to ssr
+- [ ] add manifest
 - [ ] handle deployment
 - [ ] make a TODO App from it

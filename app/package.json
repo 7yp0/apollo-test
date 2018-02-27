@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "setup": "node ./scripts/setup.js",
-    "test": "test",
+    "test": "./node_modules/.bin/jest --config=jest.config.json",
     "lint": "./node_modules/.bin/eslint ./src",
     "flow": "./node_modules/.bin/flow",
     "build": "./node_modules/.bin/webpack --config webpack.production.config.js",
@@ -46,6 +46,7 @@
     "flow-bin": "^0.66.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "github:webpack-contrib/html-webpack-plugin",
+    "jest": "^22.4.2",
     "json-loader": "^0.5.7",
     "prettier": "^1.10.2",
     "pug-html-loader": "^1.1.5",

@@ -2,7 +2,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import type { Store } from './reducers';
+import type { AppState } from './reducers';
 
 import rootReducer from './reducers';
 import { runsInServer } from './utils/environment';
@@ -24,7 +24,7 @@ const composedEnhancers = compose(
   createDevToolsExtension(),
 );
 
-const configureStore = (initialState: Store): Store =>
+const configureStore = (initialState: AppState): AppState =>
   createStore(rootReducer, initialState, composedEnhancers);
 
 export default configureStore;
