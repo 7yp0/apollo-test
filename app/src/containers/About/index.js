@@ -37,6 +37,7 @@ class About extends Component<Props> {
     const { match, data } = this.props;
     const { cats, loading, error } = data;
 
+    // TODO: make decorator
     if (loading || error) {
       return <Loader error={error} />;
     }

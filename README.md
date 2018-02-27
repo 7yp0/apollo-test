@@ -27,6 +27,9 @@ APP
 - [x] add jest
 - [x] add icons to ssr
 - [x] add manifest
-- [ ] add layouts
+- [ ] make loader as decorator
+- [ ] add error component and add error boundary (page wide, als decorator)
+- [ ] add pages + layouts
+- [ ] add i18n
 - [ ] handle deployment
 - [ ] make a TODO App from it
