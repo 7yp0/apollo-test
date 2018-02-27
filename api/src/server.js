@@ -4,6 +4,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
+import cors from 'cors';
 import mongoose from 'mongoose';
 
 import initModels from './models';
@@ -13,6 +14,8 @@ import resolvers from './resolvers';
 
 const PORT = 3000;
 const app = express();
+
+app.use(cors());
 
 mongoose.connect('mongodb://127.0.0.1:27017/example');
 

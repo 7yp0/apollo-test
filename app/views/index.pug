@@ -9,6 +9,7 @@ html.html
 
     script.
       window.__INITIAL_STATE__ = !{JSON.stringify(initialState || {})};
+      window.__APOLLO_STATE__ = !{JSON.stringify(apolloState || {})};
 
   body.body
     != svgSprite
@@ -17,6 +18,7 @@ html.html
 
     if bundles
       each bundle in bundles
-        script(src= bundle.file)
+        script(src= '/'+bundle.file type='text/javascript')
 
-    script(src="main.js")
+    script(src='/main.js' type='text/javascript')
+    

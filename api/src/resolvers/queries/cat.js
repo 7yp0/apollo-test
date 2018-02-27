@@ -1,13 +1,13 @@
-export const allCats = async (parent, args, { Cat }) => {
-  const cats = await Cat.find();
+export const cats = async (parent, args, { Cat }) => {
+  const allCats = await Cat.find();
   // controller
-  return cats.map(cat => {
+  return allCats.map(cat => {
     cat._id = cat._id.toString();
     return cat;
   });
 };
 
-export const getCat = async (parent, args, { Cat }) => {
-  const cat = await Cat.findOne(args);
-  return cat;
+export const cat = async (parent, args, { Cat }) => {
+  const singleCat = await Cat.findOne(args);
+  return singleCat;
 };

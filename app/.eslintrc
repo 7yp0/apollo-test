@@ -43,6 +43,7 @@
             "single"
         ],
         "no-console": 2,
+        "no-underscore-dangle": 0,
         "no-case-declarations": 0,
         "arrow-body-style": 2,
         "new-cap": 0,

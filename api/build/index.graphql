@@ -3,8 +3,8 @@ type Cat {
   name: String!
 }
 type Query {
-  getCat(name: String!): Cat
-  allCats: [Cat!]!
+  cat(name: String!): Cat
+  cats: [Cat!]!
 }
 
 type Mutation {

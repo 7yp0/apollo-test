@@ -31,11 +31,13 @@ const StyledLoader = styled.div`
 `;
 
 const Loader = (props: Props): Node => {
-  if (props.error) {
+  const { error, pastDelay = true } = props;
+
+  if (error) {
     return 'Error!';
   }
 
-  return props.pastDelay && <StyledLoader />;
+  return pastDelay && <StyledLoader />;
 };
 
 export default Loader;

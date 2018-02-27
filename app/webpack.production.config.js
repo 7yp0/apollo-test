@@ -11,6 +11,7 @@ module.exports = {
     path: distPath,
     filename: '[name].js',
     chunkFilename: '[name].bundle.js',
+    publicPath: '/',
   },
   plugins: [
     new ReactLoadablePlugin({

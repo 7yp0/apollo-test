@@ -2,10 +2,11 @@
 import React, { type Node } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ApolloProvider } from 'react-apollo';
 import Router from 'react-router-dom/BrowserRouter';
 import Loadable from 'react-loadable';
 
-import configureStore from './store';
+import { configureStore, configureClient } from './configures';
 
 import App from './containers/App';
 
@@ -13,12 +14,15 @@ import config from './config';
 
 // eslint-disable-next-line no-underscore-dangle
 const store = configureStore(window.__INITIAL_STATE__);
+const client = configureClient();
 
 const Wrapper = (): Node => (
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <App />
+      </Router>
+    </ApolloProvider>
   </Provider>
 );
 

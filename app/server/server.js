@@ -6,7 +6,7 @@ import {} from 'dotenv/config';
 import Loadable from 'react-loadable';
 
 import stats from '../dist/react-loadable.json';
-import renderApp from '../src/app-server';
+import renderApp from '../src/render-app';
 
 import config from '../src/config';
 
@@ -22,14 +22,17 @@ app.use(express.static(distPath));
 
 app.set('view engine', 'pug');
 
-app.get('*', (request: $Request, response: $Response) => {
+app.get('*', async (request: $Request, response: $Response): Promise<void> => {
   const context = {};
 
-  const { markup, modules, preloadedState, styleTags, svgSprite } = renderApp(
-    context,
-    request.url,
-    INITIAL_STATE,
-  );
+  const {
+    markup,
+    modules,
+    preloadedState,
+    apolloState,
+    styleTags,
+    svgSprite,
+  } = await renderApp(context, request.url, INITIAL_STATE);
 
   const bundles = getBundles(stats, modules);
 
@@ -37,6 +40,7 @@ app.get('*', (request: $Request, response: $Response) => {
     markup,
     bundles,
     initialState: preloadedState,
+    apolloState,
     styleTags,
     svgSprite,
   });
