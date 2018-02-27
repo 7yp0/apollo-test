@@ -1,6 +1,6 @@
 // @flow
 import React, { type Node, Fragment, Component } from 'react';
-import { graphql, type Data } from 'react-apollo';
+import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import {
   Route,

@@ -7,7 +7,6 @@ import Loadable from 'react-loadable';
 
 import stats from '../dist/react-loadable.json';
 import renderApp from '../src/render-app';
-
 import config from '../src/config';
 
 const INITIAL_STATE = { test: 'test' };
@@ -18,6 +17,7 @@ const { port } = config;
 
 const app = express();
 
+app.use(express.static(distPath));
 app.use(express.static(distPath));
 
 app.set('view engine', 'pug');

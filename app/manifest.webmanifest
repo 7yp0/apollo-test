@@ -1,0 +1,11 @@
+{
+  "name": "React-Apollo-Redux-App",
+  "short_name": "RARA",
+  "start_url": "http://localhost:5000/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#000000",
+  "description": "An example Frontend App",
+  "icons": []
+}

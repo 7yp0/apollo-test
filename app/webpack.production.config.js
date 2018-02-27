@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
 
 const srcPath = path.resolve(__dirname, './src');
@@ -14,6 +15,9 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
+    new CopyWebpackPlugin([
+      { from: './manifest.webmanifest', to: './manifest.webmanifest' },
+    ]),
     new ReactLoadablePlugin({
       filename: './dist/react-loadable.json',
     }),

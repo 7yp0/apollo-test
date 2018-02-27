@@ -25,6 +25,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "copy-webpack-plugin": "^4.4.2",
     "css-loader": "^0.28.9",
     "dotenv-webpack": "^1.5.4",
     "eslint": "^4.17.0",

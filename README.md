@@ -26,8 +26,7 @@ APP
 - [ ] make it offline rdy (service worker) (cache on install + on network response + generic callback [für page] +  Cache, falling back to network [für rest])
 - [x] add jest
 - [x] add icons to ssr
-- [ ] add redux reducer
+- [x] add manifest
 - [ ] add layouts
-- [ ] add manifest
 - [ ] handle deployment
 - [ ] make a TODO App from it
