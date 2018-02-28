@@ -8,7 +8,9 @@
     "test": "./node_modules/.bin/jest --config=jest.config.json",
     "lint": "./node_modules/.bin/eslint ./src",
     "flow": "./node_modules/.bin/flow",
-    "build": "./node_modules/.bin/webpack --config webpack.production.config.js",
+    "build": "npm run build:app && npm run build:sw",
+    "build:app": "./node_modules/.bin/webpack --config webpack.production.config.js",
+    "build:sw": "./node_modules/.bin/babel-node ./scripts/build-serviceworker.js",
     "start": "./node_modules/.bin/babel-node ./server/dev-server.js",
     "start-production": "./node_modules/.bin/babel-node --plugins dynamic-import-node ./server/server.js"
   },
@@ -53,6 +55,7 @@
     "apollo-cache-inmemory": "^1.1.9",
     "apollo-client": "^2.2.5",
     "apollo-link-http": "^1.5.2",
+    "compression": "^1.7.2",
     "dotenv": "^5.0.0",
     "graphql": "^0.13.1",
     "graphql-tag": "^2.8.0",

@@ -1,5 +1,5 @@
 doctype html
-html.html
+html(lang=language)
   head
     title App
 
@@ -13,10 +13,17 @@ html.html
     != styleTags
 
     script.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+
+    script.
       window.__INITIAL_STATE__ = !{JSON.stringify(initialState || {})};
       window.__APOLLO_STATE__ = !{JSON.stringify(apolloState || {})};
 
-  body.body
+  body
     != svgSprite
 
     div#root!= markup

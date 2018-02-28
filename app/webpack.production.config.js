@@ -16,7 +16,9 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: './manifest.webmanifest', to: './manifest.webmanifest' },
+      './manifest.webmanifest',
+      './vendor/*.js',
+      './views/*.html',
     ]),
     new ReactLoadablePlugin({
       filename: './dist/react-loadable.json',
