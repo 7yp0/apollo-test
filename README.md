@@ -23,13 +23,12 @@ APP
 - [x] env and config
 - [x] use react loadable
 - [x] set up apollo with redux (frontend)
-- [ ] make it offline rdy (service worker) (cache on install + on network response + generic callback [für page] +  Cache, falling back to network [für rest])
+- [x] make it offline rdy (service worker) (cache on install + on network response + generic callback [für page] +  Cache, falling back to network [für rest])
 - [x] add jest
 - [x] add icons to ssr
 - [x] add manifest
-- [ ] make loader as decorator
-- [ ] add error component and add error boundary (page wide, als decorator)
+- [x] make container loader as decorator
+- [x] add error boundary (page wide, als decorator)
 - [ ] add pages + layouts
-- [ ] add i18n
 - [ ] handle deployment
 - [ ] make a TODO App from it

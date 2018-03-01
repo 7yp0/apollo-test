@@ -2,6 +2,8 @@
 import React, { type Node } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+import ErrorMessage from '../ErrorMessage';
+
 type Props = {
   error?: boolean,
   pastDelay?: boolean,
@@ -34,7 +36,7 @@ const Loader = (props: Props): Node => {
   const { error, pastDelay = true } = props;
 
   if (error) {
-    return 'Error!';
+    return <ErrorMessage />;
   }
 
   return pastDelay && <StyledLoader />;

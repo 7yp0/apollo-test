@@ -21,7 +21,6 @@ const app = express();
 app.use(compression());
 
 app.use(express.static(distPath));
-app.use(express.static(distPath));
 
 app.set('view engine', 'pug');
 

@@ -13,10 +13,7 @@ module.exports = {
   output: {
     path: distPath,
     filename: '[name].js',
-  },
-  devServer: {
-    contentBase: './dist',
-    hot: true,
+    publicPath: '/',
   },
   plugins: [
     new Dotenv({

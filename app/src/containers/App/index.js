@@ -1,11 +1,11 @@
 // @flow
-import React, { type Node } from 'react';
+import React, { type Node, Fragment } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import Routes from '../Routes';
 
 const App = (): Node => (
-  <div>
+  <Fragment>
     <header>
       <div>
         <RouterLink to="/">Home</RouterLink>
@@ -17,7 +17,7 @@ const App = (): Node => (
     <main>
       <Routes />
     </main>
-  </div>
+  </Fragment>
 );
 
 export default App;

@@ -2,6 +2,8 @@
 import React, { Component, type Node } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import injectErrorBoundary from '../../decorators/injectErrorBoundary';
+
 type Props = {
   history: {
     push: (route: string) => void,
@@ -9,6 +11,7 @@ type Props = {
 };
 
 @withRouter
+@injectErrorBoundary
 class Home extends Component<Props> {
   handleChangePage = () => {
     const { history: { push } } = this.props;

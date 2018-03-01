@@ -7,9 +7,12 @@ const PORT = 5000;
 
 const options = {
   contentBase: './dist',
+  publicPath: '/',
   hot: true,
   historyApiFallback: true,
   host: 'localhost',
+  open: true,
+  overlay: true,
 };
 
 webpackDevServer.addDevServerEntrypoints(config, options);

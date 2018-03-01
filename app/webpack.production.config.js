@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const { ReactLoadablePlugin } = require('react-loadable/webpack');
 
 const srcPath = path.resolve(__dirname, './src');
@@ -20,6 +21,11 @@ module.exports = {
       './vendor/*.js',
       './views/*.html',
     ]),
+    new Dotenv({
+      safe: true,
+      systemvars: true,
+      silent: true,
+    }),
     new ReactLoadablePlugin({
       filename: './dist/react-loadable.json',
     }),

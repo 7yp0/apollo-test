@@ -7,7 +7,9 @@ import {
   Link as RouterLink,
   type Props as RouterProps,
 } from 'react-router-dom';
-import Loader from '../../components/Loader';
+
+import injectGqlLoader from '../../decorators/injectGqlLoader';
+import injectErrorBoundary from '../../decorators/injectErrorBoundary';
 
 type Cat = {
   name: string,
@@ -15,11 +17,7 @@ type Cat = {
 };
 
 type Props = {
-  data?: {
-    cats: Array<Cat>,
-    loading: boolean,
-    error?: Error,
-  },
+  cats: Array<Cat>,
 } & RouterProps;
 
 const mapQueryToProps = gql`
@@ -32,15 +30,11 @@ const mapQueryToProps = gql`
 `;
 
 @graphql(mapQueryToProps)
+@injectGqlLoader
+@injectErrorBoundary
 class About extends Component<Props> {
   render(): Node {
-    const { match, data } = this.props;
-    const { cats, loading, error } = data;
-
-    // TODO: make decorator
-    if (loading || error) {
-      return <Loader error={error} />;
-    }
+    const { match, cats } = this.props;
 
     return (
       <Fragment>
