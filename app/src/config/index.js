@@ -9,12 +9,12 @@ type Config = {
 };
 
 const config: Config = {
-  env: process.env.NODE_ENV,
+  env: String(process.env.NODE_ENV),
   port: Number(process.env.PORT),
-  isDevelopment: process.env.NODE_ENV === 'development',
-  isProduction: process.env.NODE_ENV === 'production',
-  isTest: process.env.NODE_ENV === 'test',
-  test: process.env.TEST,
+  isDevelopment: String(process.env.NODE_ENV) === 'development',
+  isProduction: String(process.env.NODE_ENV) === 'production',
+  isTest: String(process.env.NODE_ENV) === 'test',
+  test: String(process.env.TEST),
 };
 
 export default config;

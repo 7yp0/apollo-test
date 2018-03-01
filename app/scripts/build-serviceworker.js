@@ -2,12 +2,9 @@
 import fs from 'fs';
 import packageJson from '../package.json';
 
-
 const swPath = './dist/sw.js';
 
-const graphQlRoute = '/graphql';
 const offlineHtml = '/views/offline.html';
-
 const cacheFiles = [
   offlineHtml,
   'manifest.webmanifest',
@@ -16,9 +13,11 @@ const cacheFiles = [
 
 const bundleLength = 3;
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < bundleLength; i++) {
   cacheFiles.push(`${i}.bundle.js`);
 }
+
+const jsRegEx = new RegExp('.*\.js');
 
 const { version } = packageJson;
 
@@ -43,7 +42,7 @@ self.addEventListener('fetch', function(event) {
     caches.match(event.request).then(function(response) {
       return response || fetch(event.request);
     }).catch(function() {
-      if (!event.request.url.includes('${graphQlRoute}')) {
+      if (event.request.url.match(${jsRegEx})) {
         return caches.match('${offlineHtml}');
       }
     })

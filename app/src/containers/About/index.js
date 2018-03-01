@@ -50,9 +50,7 @@ class About extends Component<Props> {
           path={`${match.url}/cats`}
           component={(): Node => (
             <ul>
-              {cats.map((cat: Cat): string => (
-                <li key={cat._id}>{cat.name}</li>
-              ))}
+              {cats.map((cat: Cat): Node => <li key={cat._id}>{cat.name}</li>)}
             </ul>
           )}
         />

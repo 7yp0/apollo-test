@@ -1,24 +1,15 @@
 // @flow
 import React, { type Node } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import loadComponent from '../../utils/load-component';
 
-import Loader from '../../components/Loader';
-
-const LoadableHome = Loadable({
-  loader: (): any => import('../Home'),
-  loading: Loader,
-});
-
-const LoadableAbout = Loadable({
-  loader: (): any => import('../About'),
-  loading: Loader,
-});
+const Home = loadComponent(import('../Home'));
+const About = loadComponent(import('../About'));
 
 const Routes = (): Node => (
   <Switch>
-    <Route exact path="/" component={LoadableHome} />
-    <Route path="/about" component={LoadableAbout} />
+    <Route exact path="/" component={Home} />
+    <Route path="/about" component={About} />
   </Switch>
 );
 

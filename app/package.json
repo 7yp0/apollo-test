@@ -12,7 +12,8 @@
     "build:app": "./node_modules/.bin/webpack --config webpack.production.config.js",
     "build:sw": "./node_modules/.bin/babel-node ./scripts/build-serviceworker.js",
     "start": "./node_modules/.bin/babel-node ./server/dev-server.js",
-    "start-production": "./node_modules/.bin/babel-node --plugins dynamic-import-node ./server/server.js"
+    "start-production": "./node_modules/.bin/babel-node --plugins dynamic-import-node ./server/server.js",
+    "analyse": "./node_modules/.bin/webpack --profile --json > stats.json"
   },
   "author": "Michael Lückgen",
   "license": "GNU",

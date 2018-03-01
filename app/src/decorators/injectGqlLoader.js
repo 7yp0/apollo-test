@@ -9,10 +9,10 @@ export type Data = {
 };
 
 type Props = {
-  data?: Data,
+  data: Data,
 };
 
-const injectGqlLoader = (WrappedComponent: any): Node => (
+const injectGqlLoader = (WrappedComponent: any): ((props: Props) => Node) => (
   props: Props,
 ): Node => {
   const { data, ...rest } = props;
@@ -20,7 +20,7 @@ const injectGqlLoader = (WrappedComponent: any): Node => (
   const { loading, error } = data;
 
   if (loading || error) {
-    return <Loader error={error} />;
+    return <Loader error={Boolean(error)} />;
   }
 
   return <WrappedComponent {...rest} {...data} />;

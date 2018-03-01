@@ -14,20 +14,11 @@ import { configureStore, configureClient } from './configures';
 
 import App from './containers/App';
 
-type AppType = {
-  markup: string,
-  modules: Array<any>,
-  preloadedState: AppState,
-  apolloState: Object,
-  styleTags: string,
-  svgSprite: string,
-};
-
 const renderApp = async (
   context: Object,
   url: string,
   initialState: AppState,
-): AppType => {
+): Object => {
   const modules = [];
   const store = configureStore(initialState);
   const client = configureClient(true);

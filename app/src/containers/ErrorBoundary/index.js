@@ -1,7 +1,9 @@
 // @flow
 import React, { Component, type Node } from 'react';
 
-import ErrorMessage from '../../components/ErrorMessage';
+import loadComponent from '../../utils/load-component';
+
+const ErrorMessage = loadComponent(import('../../components/ErrorMessage'));
 
 type State = {
   hasError: boolean,
