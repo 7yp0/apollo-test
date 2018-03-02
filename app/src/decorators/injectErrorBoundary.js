@@ -3,7 +3,9 @@ import React, { type Node } from 'react';
 
 import loadComponent from '../utils/load-component';
 
-const ErrorBoundary = loadComponent(import('../containers/ErrorBoundary'));
+const ErrorBoundary = loadComponent((): any =>
+  import('../containers/ErrorBoundary'),
+);
 
 const injectErrorBoundary = (
   WrappedComponent: any,

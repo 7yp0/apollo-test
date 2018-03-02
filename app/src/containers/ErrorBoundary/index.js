@@ -3,7 +3,9 @@ import React, { Component, type Node } from 'react';
 
 import loadComponent from '../../utils/load-component';
 
-const ErrorMessage = loadComponent(import('../../components/ErrorMessage'));
+const ErrorMessage = loadComponent((): any =>
+  import('../../components/ErrorMessage'),
+);
 
 type State = {
   hasError: boolean,

@@ -3,9 +3,9 @@ import Loadable from 'react-loadable';
 
 import Loader from '../components/Loader';
 
-const loadComponent = (importer: any): any =>
+const loadComponent = (loader: any): any =>
   Loadable({
-    loader: (): any => importer,
+    loader,
     loading: Loader,
     delay: 300,
   });
