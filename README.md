@@ -29,6 +29,7 @@ APP
 - [x] add manifest
 - [x] make container loader as decorator
 - [x] add error boundary (page wide, als decorator)
+- [ ] common chunks?
 - [ ] add pages + layouts
 - [ ] handle deployment
 - [ ] make a TODO App from it

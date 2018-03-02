@@ -1,0 +1,18 @@
+{
+  "home": {
+    "root": [
+      ""
+    ]
+  },
+  "about": {
+    "root": [
+      "ueber",
+      "sonstiges"
+    ],
+    "cats": {
+      "root": [
+        "katzen"
+      ]
+    }
+  }
+}

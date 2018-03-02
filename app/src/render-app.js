@@ -8,8 +8,6 @@ import { ServerStyleSheet } from 'styled-components';
 import sprite from 'svg-sprite-loader/runtime/sprite.build';
 import uniq from 'lodash/uniq';
 
-import type { AppState } from './reducers';
-
 import { configureStore, configureClient } from './configures';
 
 import App from './containers/App';
@@ -17,7 +15,7 @@ import App from './containers/App';
 const renderApp = async (
   context: Object,
   url: string,
-  initialState: AppState,
+  initialState: Object,
 ): Object => {
   const modules = [];
   const store = configureStore(initialState);

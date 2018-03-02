@@ -8,8 +8,6 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import fetch from 'node-fetch';
 
-import type { AppState } from './reducers';
-
 import reducers from './reducers';
 import { runsInServer } from './utils/environment';
 
@@ -46,5 +44,5 @@ const composedEnhancers = compose(
   createDevToolsExtension(),
 );
 
-export const configureStore = (initialState: AppState): Object =>
+export const configureStore = (initialState: Object): Object =>
   createStore(rootReducer, initialState, composedEnhancers);
