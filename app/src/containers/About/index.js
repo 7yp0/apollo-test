@@ -1,6 +1,5 @@
 // @flow
 import React, { type Node, Fragment, Component } from 'react';
-import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import {
@@ -19,12 +18,7 @@ type Cat = {
 
 type Props = {
   cats: Array<Cat>,
-  routes?: Object,
 } & RouterProps;
-
-const mapStateToProps = (state: Object): Object => ({
-  routes: state.routes,
-});
 
 const mapQueryToProps = gql`
   query {
@@ -35,22 +29,17 @@ const mapQueryToProps = gql`
   }
 `;
 
-@connect(mapStateToProps)
 @graphql(mapQueryToProps)
 @injectGqlLoader
 @injectErrorBoundary
 class About extends Component<Props> {
   render(): Node {
-    const { match, cats, routes } = this.props;
-
-    if (!routes) {
-      return null;
-    }
+    const { match, cats } = this.props;
 
     return (
       <Fragment>
         <div>About {match.url}</div>
-        <RouterLink to={`${match.url}/${routes.cats}`}>show Cats</RouterLink>
+        <RouterLink to={`${match.url}/cats`}>show Cats</RouterLink>
 
         <Route
           exact
@@ -58,7 +47,7 @@ class About extends Component<Props> {
           render={(): Node => <div>about...</div>}
         />
         <Route
-          path={`${match.url}/${routes.cats}`}
+          path={`${match.url}/cats`}
           component={(): Node => (
             <ul>
               {cats.map((cat: Cat): Node => <li key={cat._id}>{cat.name}</li>)}
