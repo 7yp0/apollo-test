@@ -29,26 +29,8 @@ app.use(compression());
 
 app.use(express.static(distPath));
 
-function getLanguage(location: string, requestPath: string): Object {
-  // eslint-disable-next-line no-unused-vars
-  const [omit, lang, ...paths] = requestPath.split('/');
-
-  if (lang && localeMap[location].includes(lang)) {
-    return {
-      language: lang,
-    };
-  }
-
-  // eslint-disable-next-line no-unused-vars
-  const [language, ...rest] = localeMap[location];
-
-  return {
-    language,
-  };
-}
-
 function getLocaleObject(request: $Request): Object {
-  const { hostname, path: requestPath } = request;
+  const { hostname } = request;
 
   if (!isLive) {
     return {
@@ -61,7 +43,8 @@ function getLocaleObject(request: $Request): Object {
   const dotIndex = hostname.indexOf('.');
   const urlSuffix = hostname.slice(dotIndex + 1);
   const location = urlSuffix.toUpperCase();
-  const { language } = getLanguage(location, requestPath);
+  // eslint-disable-next-line no-unused-vars
+  const [language, ...rest] = localeMap[location];
 
   return {
     language,
