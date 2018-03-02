@@ -1,14 +1,11 @@
 // @flow
 import path from 'path';
-import map from 'lodash/map';
 import express, { type $Request, type $Response } from 'express';
 import compression from 'compression';
 import { getBundles } from 'react-loadable/webpack';
 import {} from 'dotenv/config';
 import Loadable from 'react-loadable';
-import findKey from 'lodash/findKey';
 
-import { fetchRoutes } from './services/routes';
 import stats from '../dist/react-loadable.json';
 import renderApp from '../src/render-app';
 import config from '../src/config';
@@ -82,8 +79,6 @@ app.get('*', async (request: $Request, response: $Response): Promise<void> => {
   }
 
   const { locale } = getLocaleObject(request);
-
-  // TODO: change path
 
   const {
     markup,
