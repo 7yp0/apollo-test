@@ -29,6 +29,14 @@ app.use(compression());
 
 app.use(express.static(distPath));
 
+function getPort(): string {
+  if (isLive) {
+    return '';
+  }
+
+  return `:${port}`;
+}
+
 function getLocaleObject(request: $Request): Object {
   const { hostname } = request;
 
@@ -58,10 +66,17 @@ app.get('*', async (request: $Request, response: $Response): Promise<void> => {
 
   // redirect http to https
   if (isLive && !request.secure) {
-    response.redirect(`https://${request.hostname}${request.originalUrl}`);
+    response.redirect(
+      `https://${request.hostname}${getPort()}${request.originalUrl}`,
+    );
   }
 
   const { locale } = getLocaleObject(request);
+
+  const initialState = {
+    locale,
+    ...INITIAL_STATE,
+  };
 
   const {
     markup,
@@ -70,7 +85,7 @@ app.get('*', async (request: $Request, response: $Response): Promise<void> => {
     apolloState,
     styleTags,
     svgSprite,
-  } = await renderApp(context, request.url, INITIAL_STATE);
+  } = await renderApp(context, request.url, initialState);
 
   const bundles = getBundles(stats, modules);
 

@@ -20,6 +20,10 @@ type Props = {
   cats: Array<Cat>,
 } & RouterProps;
 
+type State = {
+  catName: string,
+};
+
 const mapQueryToProps = gql`
   query {
     cats {
@@ -29,16 +33,47 @@ const mapQueryToProps = gql`
   }
 `;
 
-@graphql(mapQueryToProps)
+const mapMutationToProps = gql`
+  mutation addCat($name: String!) {
+    createCat(name: $name) {
+      name
+      _id
+    }
+  }
+`;
+
+@graphql(mapQueryToProps, mapMutationToProps)
 @injectGqlLoader
 @injectErrorBoundary
-class About extends Component<Props> {
+class About extends Component<Props, State> {
+  state = {
+    catName: '',
+  };
+
+  handleInputChange = ({ target }: Object) => {
+    this.setState({
+      catName: target.value,
+    });
+  };
+
+  handleClick = () => {
+    this.props.addCat(this.state.catName);
+
+    this.setState({
+      catName: '',
+    });
+  };
+
   render(): Node {
     const { match, cats } = this.props;
 
     return (
       <Fragment>
         <div>About {match.url}</div>
+        <div>
+          <input value={this.state.catName} onChange={this.handleInputChange} />
+          <button onClick={this.handleClick}>add cat</button>
+        </div>
         <RouterLink to={`${match.url}/cats`}>show Cats</RouterLink>
 
         <Route

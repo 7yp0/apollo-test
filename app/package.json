@@ -8,7 +8,7 @@
     "test": "./node_modules/.bin/jest --config=jest.config.json",
     "lint": "./node_modules/.bin/eslint ./src",
     "flow": "./node_modules/.bin/flow",
-    "build": "npm run build:app && npm run build:sw",
+    "build": "yarn run build:app && yarn run build:sw",
     "build:app": "./node_modules/.bin/webpack --config webpack.production.config.js",
     "build:sw": "./node_modules/.bin/babel-node ./scripts/build-serviceworker.js",
     "start": "./node_modules/.bin/babel-node ./server/dev-server.js",
@@ -16,7 +16,7 @@
     "analyse": "./node_modules/.bin/webpack --profile --json > stats.json"
   },
   "author": "Michael Lückgen",
-  "license": "GNU",
+  "license": "GPL-3.0",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.1",
@@ -44,7 +44,7 @@
     "html-webpack-plugin": "github:webpack-contrib/html-webpack-plugin",
     "jest": "^22.4.2",
     "json-loader": "^0.5.7",
-    "prettier": "^1.10.2",
+    "prettier": "^1.11.0",
     "pug-html-loader": "^1.1.5",
     "style-loader": "^0.20.2",
     "svg-sprite-loader": "^3.6.2",
