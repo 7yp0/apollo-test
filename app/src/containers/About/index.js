@@ -18,13 +18,14 @@ type Cat = {
 
 type Props = {
   cats: Array<Cat>,
+  createCat: (name: string) => Promise<Object>,
 } & RouterProps;
 
 type State = {
   catName: string,
 };
 
-const mapQueryToProps = gql`
+const catsQuery = gql`
   query {
     cats {
       name
@@ -33,8 +34,8 @@ const mapQueryToProps = gql`
   }
 `;
 
-const mapMutationToProps = gql`
-  mutation addCat($name: String!) {
+const createCatMutation = gql`
+  mutation createCat($name: String!) {
     createCat(name: $name) {
       name
       _id
@@ -42,7 +43,34 @@ const mapMutationToProps = gql`
   }
 `;
 
-@graphql(mapQueryToProps, mapMutationToProps)
+const mapCreateCatMutationToProps = {
+  props: ({ mutate }: Object): Object => ({
+    createCat: (name: string): Promise<Object> =>
+      mutate({
+        variables: { name },
+        // * in case we know the response already
+        optimisticResponse: {
+          createCat: {
+            name,
+            _id: Math.round(Math.random() * -1000000),
+            __typename: 'Cat',
+          },
+        },
+        update: (store: Object, { data: { createCat } }: Object) => {
+          // Read the data from the cache for this query.
+          const data = store.readQuery({ query: catsQuery });
+          // Add our channel from the mutation to the end.
+          data.cats.push(createCat);
+          // Write the data back to the cache.
+          store.writeQuery({ query: catsQuery, data });
+        },
+      }),
+  }),
+};
+
+@graphql(catsQuery)
+// * NOTE: for multiple mutations use the compose function from react-apollo
+@graphql(createCatMutation, mapCreateCatMutationToProps)
 @injectGqlLoader
 @injectErrorBoundary
 class About extends Component<Props, State> {
@@ -57,7 +85,7 @@ class About extends Component<Props, State> {
   };
 
   handleClick = () => {
-    this.props.addCat(this.state.catName);
+    this.props.createCat(this.state.catName);
 
     this.setState({
       catName: '',
@@ -85,7 +113,14 @@ class About extends Component<Props, State> {
           path={`${match.url}/cats`}
           component={(): Node => (
             <ul>
-              {cats.map((cat: Cat): Node => <li key={cat._id}>{cat.name}</li>)}
+              {cats.map((cat: Cat): Node => (
+                <li
+                  key={cat._id}
+                  style={{ color: Number(cat._id) < 0 ? 'red' : 'black' }}
+                >
+                  {cat.name}
+                </li>
+              ))}
             </ul>
           )}
         />
